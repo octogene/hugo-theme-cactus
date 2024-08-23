@@ -42,9 +42,9 @@
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
   {{ end }}
   {{ end }}
-  {{ if .Site.GoogleAnalytics }}
+  {{ if .Site.Config.Services.GoogleAnalytics.ID }}
   {{ if .Site.Params.googleAnalyticsAsync }}
-    {{ template "_internal/google_analytics_async.html" . }}
+    {{ template "_internal/google_analytics.html" . }}
   {{ else }}
     {{ template "_internal/google_analytics.html" . }}
   {{ end }}
